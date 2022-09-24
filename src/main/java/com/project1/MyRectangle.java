@@ -26,11 +26,11 @@ public class MyRectangle extends MyShape {
         this.rectangleColor = Optional.ofNullable(rectangleColor).orElse(MyColor.BLACK);
     }
     
-    public void setPoint(MyPoint p){this.p = p; } //set the point
+    public void setPoint(MyPoint p){this.p = p; }                //sets the point
 
 
     //Getters 
-    public MyPoint getP(){ return this.p; }                       //returns the top left corner point
+    public MyPoint getP(){ return this.p; }                      //returns the top left corner point
 
     public double getWidth(){ return w; }                        //returns the the width of the rectangle
 

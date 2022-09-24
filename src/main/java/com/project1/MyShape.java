@@ -48,22 +48,21 @@ public class MyShape{
     public double perimeter(){ return 0; }                         //returns the perimeter of the shape
 
 
-    @Override
-    public String toString() { return "This is my My Shape : "; }  //Object's description
-
     public void Stroke(GraphicsContext GC)
     {
         GC.setStroke(shapeColor.getJavaFXColor());
-       // GC.fillRect(0, 0, GC.getCanvas.getWidth(), GC.getCanvas.getheight());
+        GC.strokeRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());
     }
 
     public void draw(GraphicsContext GC)
     {
         GC.setFill(shapeColor.getJavaFXColor());
-       // GC.fillRect(0, 0, GC.getCanvas.getWidth(), GC.getCanvas.getheight());
+        GC.fillRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());
     }
-    
 
+    @Override
+    public String toString() { return "This is my My Shape : "; }  //Object's description
+    
 } // end of the class MyShape
 
 

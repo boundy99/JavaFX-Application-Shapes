@@ -1,5 +1,5 @@
 package com.project1;
-import java.awt.Color;
+import javafx.scene.paint.Color;
 
 public enum MyColor {
     MAROON	(128,0,0,255),
@@ -200,19 +200,13 @@ public enum MyColor {
 		return "#" + Integer.toHexString(getARGB()).toUpperCase();
 	}
 
-	public Color getAWTColor(){ return Color.decode(Integer.toString(argb));}
-
-	public Color getJavaFXCOlor()
+	public Color getJavaFXColor()
 	{
-		// Color fxColor = new Color(r, g, b, (int)((double) a/255.0));
-		// return fxColor;
 		return Color.rgb(r, g, b, ((double) a/255.0));
 	}
 
-	public Color getJavaFXOpaqueCOlor() 
+	public Color getJavaFXOpaqueColor() 
 	{ 
-		// Color fxColorOpaque = new Color(r, g, b);
-		// return fxColorOpaque;
 		return Color.rgb(r, g, b, ((double) a/255.0));
 	}
 	 

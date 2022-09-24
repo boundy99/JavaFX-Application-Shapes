@@ -81,18 +81,10 @@ public class MyPoint {
         return Math.toDegrees(Math.atan2(dy, dx));
     }
 
-
-    public void Stroke(GraphicsContext GC)
-    {
-        GC.setStroke(pointColor.getJavaFXColor());
-        //GC.fillOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0;
-    }
-
     public void draw(GraphicsContext GC)
     {
-        // GC.setFill(pointColor.getJavaFXCOlor);
-        // GC.fillOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0;
-
+        GC.setFill(pointColor.getJavaFXColor());
+        GC.fillRect(1,1, x,y);
     }
     
     @Override
