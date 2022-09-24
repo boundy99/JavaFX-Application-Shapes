@@ -6,7 +6,7 @@ public class MyShape{
 
     //Variables
     MyPoint p;                     //Point
-    MyColor shapeColor;            //Color of the shape
+    MyColor color;            //Color of the shape
 
     //Constructor
     MyShape(MyPoint p, MyColor shapeColor) 
@@ -28,13 +28,13 @@ public class MyShape{
 
     public void setColor(MyColor shapeColor)                        //set the color of the shape
     {
-        this.shapeColor = Optional.ofNullable(shapeColor).orElse(MyColor.BLACK);
+        this.color = Optional.ofNullable(shapeColor).orElse(MyColor.BLACK);
     }
 
     //Getters 
     public MyPoint getPoint() { return p; }                         //returns the point
 
-    public MyColor getShapeColor() { return shapeColor; }           //returns the color of the shape
+    public MyColor getShapeColor() { return color; }           //returns the color of the shape
 
     public double getXCoordinate(){ return p.getXCoordinate(); }   //returns the x coordinate of the point
 
@@ -50,13 +50,13 @@ public class MyShape{
 
     public void Stroke(GraphicsContext GC)
     {
-        GC.setStroke(shapeColor.getJavaFXColor());
+        GC.setStroke(color.getJavaFXColor());
         GC.strokeRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());
     }
 
     public void draw(GraphicsContext GC)
     {
-        GC.setFill(shapeColor.getJavaFXColor());
+        GC.setFill(color.getJavaFXColor());
         GC.fillRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());
     }
 

@@ -1,21 +1,19 @@
 package com.project1;
-import java.util.Optional;
+
 import javafx.scene.canvas.*;
 
 public class MyOval extends MyShape
 {
 
     //variables 
-    double a, b;            //radius of the oval
+    double a, b;            //major and minore axis of the oval
     MyPoint center;         //center of the oval
-    MyColor ovalColor;      //color of the oval
 
     //constructors
-    MyOval(double majorAxis, double minorAxis, MyPoint p) 
+    MyOval(double majorAxis, double minorAxis, MyPoint tp, MyColor color) 
     {
-        super(new MyPoint(), null);                           //calls the super class constructor
-        setOvalColor(ovalColor);                                         //sets the color of the oval                                             //sets radius of the circle
-        this.center = p;                                                 //sets the center of the oval 
+        super(tp, color);                                     //calls the super class constructor
+        this.center = this.p;                                 //sets the center of the oval 
         if (a>b)
         {
             this.a = majorAxis;
@@ -33,12 +31,6 @@ public class MyOval extends MyShape
         }                                              
     }
 
-     //Setters 
-     public void setOvalColor(MyColor ovaColor)                     //sets the rectangle color
-    {
-        this.ovalColor = Optional.ofNullable(ovalColor).orElse(MyColor.BLACK);
-    }
-
      //Getters
      public double getX() { return center.getXCoordinate();}              //return the x coordinate of the center
 
@@ -47,8 +39,6 @@ public class MyOval extends MyShape
      public double getA() { return a;}                                    //returns the absissa of the oval
 
      public double getB() { return b;}                                    //returns the abscissa axis of the oval
-
-     public MyColor getOvalColor() { return ovalColor; }                  //returns the color of the oval
 
      @Override
      public double perimeter() 
@@ -70,14 +60,14 @@ public class MyOval extends MyShape
     @Override
     public void Stroke(GraphicsContext GC)
     {
-        GC.setStroke(ovalColor.getJavaFXColor());
+        GC.setStroke(color.getJavaFXColor());
         GC.strokeOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0);
     }
 
     @Override
     public void draw(GraphicsContext GC)
     {
-        GC.setFill(ovalColor.getJavaFXColor());
+        GC.setFill(color.getJavaFXColor());
         GC.fillOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0);
     }
 

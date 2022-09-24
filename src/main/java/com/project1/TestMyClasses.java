@@ -25,20 +25,20 @@ public class TestMyClasses {
 
         System.out.println("--------------------------------");
 
-        MyPoint p1 = new MyPoint(128,246, MyColor.BLUE);
-        MyPoint p2 = new MyPoint(200,600, MyColor.RED);
+        MyPoint p1 = new MyPoint(128,246);
+        MyPoint p2 = new MyPoint(200,600);
 
         System.out.println("Distance is: " + p1.distance(p2));
         System.out.println("The Angle is: " + p1.getAngleX(p2));
 
         System.out.println("--------------------------------");
         
-        MyRectangle rectangle = new MyRectangle(4, 5, p1);
+        MyRectangle rectangle = new MyRectangle(4, 5, p1, MyColor.ALICEBLUE);
         System.out.println("Rectangle : " + rectangle.perimeter());
         
         System.out.println("--------------------------------");
 
-        MyOval oval = new MyOval(5, 5, p1);
+        MyOval oval = new MyOval(5, 5, p1, MyColor.DARKBLUE);
         System.out.println("Oval Perimeter: " + oval.perimeter());
         System.out.println("Oval Area : " + oval.area());
 

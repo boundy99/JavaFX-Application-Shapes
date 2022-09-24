@@ -1,5 +1,4 @@
 package com.project1;
-import java.util.Optional;
 import javafx.scene.canvas.GraphicsContext;
 
 public class MyRectangle extends MyShape {
@@ -7,27 +6,14 @@ public class MyRectangle extends MyShape {
     //Variables 
     double w;                        //The width of the rectangle
     double h;                        //The height of the rectangle
-    MyColor rectangleColor;          //The color of the rectangle
-    MyPoint p;                       //The point 
 
     //Constructors
-    MyRectangle(double h, double w, MyPoint tp) 
+    MyRectangle(double h, double w, MyPoint tp, MyColor color) 
     {
-        super(new MyPoint(), null); 
+        super(tp, color); 
         this.h= h;
         this.w= w;
-        this.p = tp;
-        setRectangleColor(rectangleColor);;
     }
-
-    //Setters 
-    public void setRectangleColor(MyColor rectangleColor) //set the rectangle color
-    {
-        this.rectangleColor = Optional.ofNullable(rectangleColor).orElse(MyColor.BLACK);
-    }
-    
-    public void setPoint(MyPoint p){this.p = p; }                //sets the point
-
 
     //Getters 
     public MyPoint getP(){ return this.p; }                      //returns the top left corner point
@@ -35,8 +21,6 @@ public class MyRectangle extends MyShape {
     public double getWidth(){ return w; }                        //returns the the width of the rectangle
 
     public double getHeight(){ return h; }                       //returns the height of the rectangle
-
-    public MyColor getRectangleColor(){ return rectangleColor; } //returns the color of the rectangle
 
     @Override
     public double perimeter(){ return ( 2 * w * h); }            //returns the perimeter of the rectangle
@@ -54,15 +38,15 @@ public class MyRectangle extends MyShape {
     @Override
     public void Stroke(GraphicsContext GC)
     {
-        GC.setStroke(rectangleColor.getJavaFXColor());
-        GC.strokeRect(p.getXCoordinate(), p.getXCoordinate(), w,h);
+        GC.setStroke(color.getJavaFXColor());
+        GC.strokeRect(this.p.getXCoordinate(), this.p.getXCoordinate(), w,h);
     }
 
     @Override
     public void draw(GraphicsContext GC)
     {
-        GC.setFill(rectangleColor.getJavaFXColor());
-        GC.fillRect(p.getXCoordinate(), p.getXCoordinate(), w,h);
+        GC.setFill(color.getJavaFXColor());
+        GC.fillRect(this.p.getXCoordinate(), this.p.getXCoordinate(), w,h);
     }
 
 } // end of the class MyRectangle

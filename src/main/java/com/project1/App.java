@@ -14,11 +14,11 @@ public class App extends Application {
     @Override
     public void start(Stage PS) throws IOException {
         
-        MyPoint p1 = new MyPoint(128,246, MyColor.CORAL);
+        MyPoint p1 = new MyPoint(128,246);
         Canvas canvas = new Canvas(600,800);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        MyRectangle r1 = new MyRectangle(300,500, p1);
-        MyOval oval = new MyOval(50,50, p1);
+        MyRectangle r1 = new MyRectangle(300,500, p1, MyColor.CADETBLUE);
+        MyOval oval = new MyOval(50,50, p1, MyColor.TAN);
         r1.draw(gc);
         oval.draw(gc);
         

@@ -11,19 +11,15 @@ public class MyPoint {
     MyColor pointColor;      //color of the point
 
     //Constructor
-    MyPoint() 
-    {
-        setPoint(0,0);
-        this.pointColor = MyColor.BLACK;
-    }
+    MyPoint() { setPoint(0,0); }
 
-    MyPoint(int x, int y, MyColor shapeColor)
+    MyPoint(int x, int y)
     {
         setPoint(x,y);
         setColor(pointColor);
     } 
 
-    MyPoint(MyPoint p, MyColor shapeColor)
+    MyPoint(MyPoint p)
     {
         setPoint(p);
         setColor(pointColor);
@@ -42,10 +38,10 @@ public class MyPoint {
         this.y = y;
     }
 
-    public void setColor(MyColor shapeColor) 
+    public void setColor(MyColor pointColor) 
     {
-        this.pointColor = Optional.ofNullable(pointColor).orElse(MyColor.BLACK);
-        //In case the user wants to choose his own default color
+        this.pointColor = Optional.ofNullable(pointColor).orElse(MyColor.PINK);
+        //In case the user to choose his own default color
     } 
 
     //Getters 
