@@ -39,14 +39,16 @@ public class MyRectangle extends MyShape {
     public void Stroke(GraphicsContext GC)
     {
         GC.setStroke(color.getJavaFXColor());
-        GC.strokeRect(this.p.getXCoordinate(), this.p.getXCoordinate(), w,h);
+        //GC.strokeRect(0, 0, w, h);
+        GC.strokeRect(this.p.getXCoordinate(), this.p.getYCoordinate(), w,h);
     }
 
     @Override
     public void draw(GraphicsContext GC)
     {
         GC.setFill(color.getJavaFXColor());
-        GC.fillRect(this.p.getXCoordinate(), this.p.getXCoordinate(), w,h);
+        //GC.fillRect(14, 14, w, h);
+        GC.fillRect(this.p.getXCoordinate(), this.p.getYCoordinate(), w,h);
     }
 
 } // end of the class MyRectangle

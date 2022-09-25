@@ -1,5 +1,6 @@
 package com.project1;
 
+import java.io.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -14,14 +15,23 @@ public class App extends Application {
     @Override
     public void start(Stage PS) throws IOException {
         
-        MyPoint p1 = new MyPoint(128,246);
-        Canvas canvas = new Canvas(600,800);
+        double val = 500;
+        double sq = Math.sqrt(2) * (val / 2);
+        double distance = 73;
+        MyPoint p = new MyPoint(0,0);
+        MyPoint p2 = new MyPoint(distance, distance);
+        Canvas canvas = new Canvas(1000,1000);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        MyRectangle r1 = new MyRectangle(300,500, p1, MyColor.CADETBLUE);
-        MyOval oval = new MyOval(50,50, p1, MyColor.TAN);
+      
+
+        System.out.println("Sq: " + sq);
+        MyRectangle r1 = new MyRectangle(val,val, p, MyColor.ROSYBROWN);
+        MyOval oval = new MyOval(val,val, p, MyColor.WHITE);
+        MyRectangle r2 = new MyRectangle(sq ,sq, p2, MyColor.ROSYBROWN);
         r1.draw(gc);
         oval.draw(gc);
-        
+        r2.draw(gc);
+
         Pane P = new Pane();
         P.getChildren().add(canvas);
 

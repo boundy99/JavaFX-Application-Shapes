@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class MyShape{
 
     //Variables
-    MyPoint p;                     //Point
+    MyPoint p;                //Point
     MyColor color;            //Color of the shape
 
     //Constructor

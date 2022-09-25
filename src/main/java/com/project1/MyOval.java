@@ -61,14 +61,15 @@ public class MyOval extends MyShape
     public void Stroke(GraphicsContext GC)
     {
         GC.setStroke(color.getJavaFXColor());
-        GC.strokeOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0);
+        GC.strokeOval(0,0, a, b);
+        //GC.center.getXCoordinate(), center.getYCoordinate()
     }
 
     @Override
     public void draw(GraphicsContext GC)
     {
         GC.setFill(color.getJavaFXColor());
-        GC.fillOval(center.getXCoordinate() - a, center.getYCoordinate() - b, a * 2.0, b * 2.0);
+        GC.fillOval(0,0, a, b);
     }
 
  } // end of the class MyOval
