@@ -1,9 +1,9 @@
 package com.project1;
 
-import java.io.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
@@ -14,23 +14,21 @@ public class App extends Application {
 
     @Override
     public void start(Stage PS) throws IOException {
-        
-        double val = 500;
-        double sq = Math.sqrt(2) * (val / 2);
-        double distance = 73;
-        MyPoint p = new MyPoint(0,0);
-        MyPoint p2 = new MyPoint(distance, distance);
-        Canvas canvas = new Canvas(1000,1000);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-      
 
-        System.out.println("Sq: " + sq);
-        MyRectangle r1 = new MyRectangle(val,val, p, MyColor.ROSYBROWN);
-        MyOval oval = new MyOval(val,val, p, MyColor.WHITE);
-        MyRectangle r2 = new MyRectangle(sq ,sq, p2, MyColor.ROSYBROWN);
-        r1.draw(gc);
+        Canvas canvas = new Canvas(1000, 1000);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        double ovalSize = 500;
+        MyPoint o1 = new MyPoint(0, 0);
+        MyOval oval = new MyOval(ovalSize, ovalSize, o1, MyColor.LIGHTBLUE);
         oval.draw(gc);
-        r2.draw(gc);
+
+        Pair<MyPoint, Double> info = drawRecInsideOval(gc, o1, ovalSize, MyColor.MISTYROSE);
+        ovalSize = info.getValue();
+        MyOval oval2 = new MyOval(ovalSize, ovalSize, info.getKey(), MyColor.LIGHTPINK);
+        oval2.draw(gc);
+
+        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.HONEYDEW);
 
         Pane P = new Pane();
         P.getChildren().add(canvas);
@@ -38,8 +36,19 @@ public class App extends Application {
         Scene scene = new Scene(P);
         PS.setScene(scene);
         PS.show();
-    
+
     }
+
+    public Pair<MyPoint, Double> drawRecInsideOval(GraphicsContext gc, MyPoint oval, double diameter, MyColor color) {
+        double rectangle = Math.sqrt(2) * diameter / 2;
+        double distance = (diameter - rectangle) / 2;
+        MyPoint rPoint = new MyPoint(distance + oval.x, distance + oval.y);
+        MyRectangle r = new MyRectangle(rectangle, rectangle, rPoint, color);
+        r.draw(gc);
+        Pair<MyPoint, Double> info = new Pair<MyPoint, Double>(rPoint, rectangle);
+        return info;
+    }
+
     public static void main(String[] args) {
         launch();
     }
