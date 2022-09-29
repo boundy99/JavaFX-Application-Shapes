@@ -28,7 +28,10 @@ public class App extends Application {
         MyOval oval2 = new MyOval(ovalSize, ovalSize, info.getKey(), MyColor.LIGHTPINK);
         oval2.draw(gc);
 
-        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.HONEYDEW);
+        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.KHAKI);
+
+        MyOval oval3 = new MyOval(info.getValue(), info.getValue(), info.getKey(), MyColor.LIGHTSALMON);
+        oval3.draw(gc);
 
         Pane P = new Pane();
         P.getChildren().add(canvas);

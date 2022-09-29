@@ -52,7 +52,7 @@ public class MyPoint {
     public double getYCoordinate(){ return y; }          //returns the y coordinate of the point
 
 
-    public void translate(double dx, double dy)                //Change the x and y coordinates by the specified distance
+    public void translate(double dx, double dy)           //Change the x and y coordinates by the specified distance
     {
         this.x += dx;
         this.y += dy;
