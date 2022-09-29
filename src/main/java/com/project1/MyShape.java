@@ -1,3 +1,13 @@
+/*
+Student name: Abdoulaye Boundy Djikine
+Instructor name: Hesham Auda
+Section: CSC 22100 M[24141]
+Date:29/09/2022
+
+Goal: This assignment has for goal to draw overlaying shapes using JavaFX Application
+
+Class: MyShape
+*/
 package com.project1;
 import java.util.Optional;
 import javafx.scene.canvas.GraphicsContext;
@@ -5,30 +15,31 @@ import javafx.scene.canvas.GraphicsContext;
 public class MyShape{
 
     //Variables
-    MyPoint p;                //Point
-    MyColor color;            //Color of the shape
+    MyPoint p;                //creats a point p from class MyPoint
+    MyColor color;            //creates a color from class MyColor
 
-    //Constructor
+    //Constructors
     MyShape(MyPoint p, MyColor shapeColor) 
     {
-        setPoint(p);
-        setColor(shapeColor);
+        setPoint(p);             //calls the the function setPoint() to sets the point to p
+        setColor(shapeColor);    //calls the the function setColor to sets the color
     }
 
-    MyShape(int x, int y, MyColor shapeColor) 
+    MyShape(int x, int y, MyColor shapeColor)  //Overloads the constructor with x and y
     {
-        setPoint(x,y);
+        setPoint(x,y);          //calls the the function setPoint to set the point coordinates to x and y
         setColor(shapeColor);
     }
 
     //Setters
-    public void setPoint(MyPoint p) { this.p = p; }                 //sets the point p
+    public void setPoint(MyPoint p) { this.p = p; }                 //sets the point to p
 
     public void setPoint(int x, int y) { p.setPoint(x, y); }        //assigns x and y as the point's coordinates
 
-    public void setColor(MyColor shapeColor)                        //set the color of the shape
+    public void setColor(MyColor shapeColor)                        //sets the color of the shape
     {
-        this.color = Optional.ofNullable(shapeColor).orElse(MyColor.BLACK);
+        this.color = Optional.ofNullable(shapeColor).orElse(MyColor.BLACK);  
+        //set the color of the shape to black if user does not set it explicitly
     }
 
     //Getters 

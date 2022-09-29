@@ -1,5 +1,14 @@
+/*
+Student name: Abdoulaye Boundy Djikine
+Instructor name: Hesham Auda
+Section: CSC 22100 M[24141]
+Date:29/09/2022
+
+Goal: This assignment has for goal to draw overlaying shapes using JavaFX Application
+
+Class: TestMyClasses
+*/
 package com.project1;
-//import java.awt.Color;
 import java.util.Random;
 
 public class TestMyClasses {

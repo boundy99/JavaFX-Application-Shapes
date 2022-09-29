@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage PS) throws IOException {
 
-        Canvas canvas = new Canvas(1000, 1000);
+        Canvas canvas = new Canvas(1000, 1000);              //creates a new canvas of height 1000 and width 1000
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         double ovalSize = 500;
@@ -33,7 +33,7 @@ public class App extends Application {
         MyOval oval3 = new MyOval(info.getValue(), info.getValue(), info.getKey(), MyColor.LIGHTSALMON);
         oval3.draw(gc);
 
-        Pane P = new Pane();
+        Pane P = new Pane();        
         P.getChildren().add(canvas);
 
         Scene scene = new Scene(P);
@@ -53,7 +53,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch();   //launches the application
     }
 
 }

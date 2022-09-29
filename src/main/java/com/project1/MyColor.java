@@ -1,7 +1,17 @@
+/*
+Student name: Abdoulaye Boundy Djikine
+Instructor name: Hesham Auda
+Section: CSC 22100 M[24141]
+Date:29/09/2022
+
+Goal: This assignment has for goal to draw overlaying shapes using JavaFX Application
+
+Class: MyColor
+*/
 package com.project1;
 import javafx.scene.paint.Color;
 
-public enum MyColor {
+public enum MyColor {    												//creates our own color object
     MAROON	(128,0,0,255),
     DARKRED	(139,0,0,255),
  	BROWN (165,42,42,255),

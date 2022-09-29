@@ -1,6 +1,15 @@
+/*
+Student name: Abdoulaye Boundy Djikine
+Instructor name: Hesham Auda
+Section: CSC 22100 M[24141]
+Date:29/09/2022
+
+Goal: This assignment has for goal to draw overlaying shapes using JavaFX Application
+
+Class: MyPoint
+*/
 package com.project1;
 import java.util.Optional;
-//import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.canvas.GraphicsContext;
 
@@ -70,14 +79,20 @@ public class MyPoint {
         return Math.sqrt((dx*dx) + (dy*dy));
     }
 
-    public double getAngleX(MyPoint p)                   //returns the angleX
+    public double getAngleX(MyPoint p)                   //returns the angleX bewtwenn points
     { 
         double dx = p.getXCoordinate() - x;
         double dy = p.getYCoordinate() - y;
         return Math.toDegrees(Math.atan2(dy, dx));
     }
 
-    public void draw(GraphicsContext GC)
+    public void setStroke(GraphicsContext GC)            //Draw using JavaFX Application GraphicsContext
+    {
+        GC.setStroke(pointColor.getJavaFXColor());
+        GC.strokeRect(1,1, x,y);
+    }
+
+    public void draw(GraphicsContext GC)                 //Draw using JavaFX Application GraphicsContext
     {
         GC.setFill(pointColor.getJavaFXColor());
         GC.fillRect(1,1, x,y);
