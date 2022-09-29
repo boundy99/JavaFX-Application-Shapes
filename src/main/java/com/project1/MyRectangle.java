@@ -14,8 +14,8 @@ import javafx.scene.canvas.GraphicsContext;
 public class MyRectangle extends MyShape {
    
     //Variables 
-    double w;                                                   //The width of the rectangle
-    double h;                                                   //The height of the rectangle
+    double w;                                                    //the width of the rectangle
+    double h;                                                    //The height of the rectangle
 
     //Constructors
     MyRectangle(double h, double w, MyPoint tp, MyColor color) 

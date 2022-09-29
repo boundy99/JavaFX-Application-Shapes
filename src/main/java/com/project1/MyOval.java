@@ -15,28 +15,28 @@ public class MyOval extends MyShape
 {
 
     //variables 
-    double a, b;                                 //major and minor axis of the oval
+    double majorAxis, minorAxis;                 //major and minor axis of the oval
     MyPoint center;                              //center of the oval of type MyPoint
 
     //constructors
-    MyOval(double majorAxis, double minorAxis, MyPoint tp, MyColor color) 
+    MyOval(double a, double b, MyPoint tp, MyColor color) 
     {
         super(tp, color);                                     //calls the constructor from the super class of MyShape 
         this.center = this.p;                                 //sets the center of the oval 
         if (a>b)
         {
-            this.a = majorAxis;
-            this.b = minorAxis;
+            this.majorAxis = a;
+            this.minorAxis = b;
         }   
         else if(b>a)
         {
-            this.b = majorAxis;
-            this.a = minorAxis;
+            this.minorAxis = a;
+            this.majorAxis = b;
         }    
         else
         { 
-            this.a = majorAxis = minorAxis;
-            this.b = minorAxis = majorAxis;
+            this.majorAxis = a = b;
+            this.minorAxis = b = a;
         }                                              
     }
 
@@ -45,18 +45,18 @@ public class MyOval extends MyShape
 
      public double getY() { return center.getYCoordinate();}              //returns the y coordinate of the center
 
-     public double getA() { return a;}                                    //returns the absissa of the oval
+     public double getA() { return Math.max(majorAxis,minorAxis);}        //returns the major axis of the oval
 
-     public double getB() { return b;}                                    //returns the abscissa axis of the oval
+     public double getB() { return Math.min(majorAxis,minorAxis);}        //returns the minor axis of the oval
 
      @Override
      public double perimeter() 
      { 
-        return 2 * Math.PI * Math.sqrt(((a * a) + (b * b)) / 2); 
+        return 2 * Math.PI * Math.sqrt(((majorAxis * majorAxis) + (minorAxis * minorAxis)) / 2); 
      }                                                                    //returns the perimeter of the oval
 
      @Override 
-     public double area() { return 2 * a * b; }                           //returns the area of the oval
+     public double area() { return 2 * majorAxis * minorAxis; }                           //returns the area of the oval
 
      @Override
     public String toString()                                              //returns the oval's description
@@ -64,8 +64,8 @@ public class MyOval extends MyShape
         return "Center Coordinates : "+
                "\nX = " + center.getXCoordinate() + 
                "\nY = " + center.getXCoordinate() +
-               "\nAbscissa 1 = " + getA() + 
-               "\nAbscissa 2 = " + getB() + 
+               "\nMajor Axis = " + getA() + 
+               "\nMinor Axis = " + getB() + 
                "\nPermimeter =  " + perimeter() +
                "\nArea = " + area();
     }
@@ -74,14 +74,14 @@ public class MyOval extends MyShape
     public void Stroke(GraphicsContext GC)
     {
         GC.setStroke(color.getJavaFXColor());
-        GC.strokeOval(center.getXCoordinate(), center.getYCoordinate(), a, b);
+        GC.strokeOval(center.getXCoordinate(), center.getYCoordinate(), majorAxis, minorAxis);
     }
 
     @Override
     public void draw(GraphicsContext GC)
     {
         GC.setFill(color.getJavaFXColor());
-        GC.fillOval(center.getXCoordinate(), center.getYCoordinate(), a, b);
+        GC.fillOval(center.getXCoordinate(), center.getYCoordinate(), majorAxis, minorAxis);
     }
 
  } // end of the class MyOval

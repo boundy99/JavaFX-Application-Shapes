@@ -11,7 +11,8 @@ Class: MyColor
 package com.project1;
 import javafx.scene.paint.Color;
 
-public enum MyColor {    												//creates our own color object
+public enum MyColor {    	
+	//creates our own color object from RapidTables									
     MAROON	(128,0,0,255),
     DARKRED	(139,0,0,255),
  	BROWN (165,42,42,255),
@@ -160,7 +161,7 @@ public enum MyColor {    												//creates our own color object
     //Setters 
     public void setR(int r)    //sets the red component to r
     {
-        if(r>=0 && r<=255)
+        if(r>=0 && r<=255)	   //if it is within the range
         {
         this.r = r;
         }
@@ -168,7 +169,7 @@ public enum MyColor {    												//creates our own color object
 
     public void setG(int g)   //sets the green component to g
     {
-        if(g>=0 && g<=255)
+        if(g>=0 && g<=255)    //if it is within the range
         {
         this.g = g;
         }
@@ -176,15 +177,15 @@ public enum MyColor {    												//creates our own color object
 
     public void setB(int b)    //sets the blue component to b
     {
-        if(b>=0 && b<=255)
+        if(b>=0 && b<=255)     //if it is within the range
         {
         this.b = b;
         }
     }
 
-	public void setA(int a)    //sets the alpha component to a
+	public void setA(int a)    //sets the opacity component to a
     {
-        if(a>=0 && a<=255)
+        if(a>=0 && a<=255)	   //if it is within the range
         {
         this.a = a;
         }
@@ -192,21 +193,21 @@ public enum MyColor {    												//creates our own color object
 
     public void setARGB(int a, int r, int g, int b)  //
     {
-        this.argb = (a << 24) & 0xFF000000 |
-                    (r << 16) & 0x00FF0000|
-                    (g << 8) & 0x0000FF00|
-                     b;
+        this.argb = (a << 24) & 0xFF000000 | 	//shifts opacity by 24 bits and converts to hexadecimal 
+                    (r << 16) & 0x00FF0000| 	//shifts red by 16 bits and converts to hexadecimal
+                    (g << 8) & 0x0000FF00|      //shifts green by 8 bits and converts to hexadecimal
+                     b;                         //shifts blue by 0 bits and converts to hexadecimal
     }
 
 	//Getters
-    public int getR() { return r;} //returns the red color
-	public int getG() { return g;} //returns the green color
-	public int getB() { return b;} //returns the blue color
-	public int getA() { return a;} //returns the alpha
+    public int getR() { return r;}       //returns the red color
+	public int getG() { return g;}       //returns the green color
+	public int getB() { return b;}       //returns the blue color
+	public int getA() { return a;}       //returns the alpha
 	public int getARGB() { return argb;} //returns the arbg
 
-	//Get Hexadecimal representation Method
-	public String getHex()
+	
+	public String getHex()//Gives Hexadecimal representation of opaque colors
 	{
 		return "#" + Integer.toHexString(getARGB()).toUpperCase();
 	}
@@ -221,11 +222,11 @@ public enum MyColor {    												//creates our own color object
 		return MyColor.values();
 	}
        
-	//Print Colors and hexadecimal representation
-	public String printColorsAndHex()
+	//Print Color components and hexadecimal representation
+	public String printColorsAndHex()	
 	{
 		return "(r: " + this.r + ", g: " + this.g + ", b: " + this.b + ")" +
-		 " THE HEXADECIMAL REPRESENTATION OF THE COLOR VALUES IS " + this.getHex();
+		 "\nTHE HEXADECIMAL REPRESENTATION OF THE COLOR VALUES IS " + this.getHex();
 	}
 	
 } // end of class MyColor

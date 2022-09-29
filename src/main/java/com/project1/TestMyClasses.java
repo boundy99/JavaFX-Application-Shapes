@@ -54,7 +54,7 @@ public class TestMyClasses {
         System.out.println("CLASS MyOval OUTPUTS");
         System.out.println("--------------------------------|");
         System.out.println();
-        MyOval oval = new MyOval(5, 5, p1, MyColor.DARKBLUE); ////creates a new OVAL from MyOval
+        MyOval oval = new MyOval(3, 5, p1, MyColor.DARKBLUE);   //creates a new OVAL from MyOval
         System.out.println(oval);
 
     }
