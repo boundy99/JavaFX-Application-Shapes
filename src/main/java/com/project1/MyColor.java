@@ -144,7 +144,7 @@ public enum MyColor {
     private int r;    //Red Colors component range from 0 to 255
     private int b;    //Blue Colors component range from 0 to 255
     private int g;    //Green Colors component range from 0 to 255
-	private int a;    //Opacity Colors component range from 0 to 255
+	private int a;    //Opacity of the Colors component range from 0 to 255
     private int argb; // Pack of Opacity -  Red   -  Green  -  Blue in bits
 					  // Bits:     31-24 - 23-16  -  15-8   -  7-0
 
@@ -154,7 +154,7 @@ public enum MyColor {
        setR(r); //sets the red component to r
 	   setG(g); //sets the green component to g
        setB(b); //sets the blue component to b
-	   setA(a); //sets the alpha component to
+	   setA(a); //sets the opacity component to
        setARGB(r, g, b, a); //sets the argb component to
     }
 
@@ -196,33 +196,33 @@ public enum MyColor {
         this.argb = (a << 24) & 0xFF000000 | 	//shifts opacity by 24 bits and converts to hexadecimal 
                     (r << 16) & 0x00FF0000| 	//shifts red by 16 bits and converts to hexadecimal
                     (g << 8) & 0x0000FF00|      //shifts green by 8 bits and converts to hexadecimal
-                     b;                         //shifts blue by 0 bits and converts to hexadecimal
+                     b;                         //shifts blue and converts to hexadecimal
     }
 
 	//Getters
-    public int getR() { return r;}       //returns the red color
-	public int getG() { return g;}       //returns the green color
-	public int getB() { return b;}       //returns the blue color
-	public int getA() { return a;}       //returns the alpha
-	public int getARGB() { return argb;} //returns the arbg
+    public int getR() { return r;}       //returns the red color component
+	public int getG() { return g;}       //returns the green color component
+	public int getB() { return b;}       //returns the blue color component
+	public int getA() { return a;}       //returns the opacity component
+	public int getARGB() { return argb;} //returns the arbg component
 
 	
-	public String getHex()//Gives Hexadecimal representation of opaque colors
+	public String getHex() //gives the hexadecimal representation of opaque colors
 	{
 		return "#" + Integer.toHexString(getARGB()).toUpperCase();
 	}
 
 	public Color getJavaFXColor()  //returns the JavaFX colors
 	{
-		return Color.rgb(r, g, b, ((double) a/255.0)); //divides a by 255 to get desired opacity
+		return Color.rgb(r, g, b, ((double) a/255.0)); //divides a by 255 to get non-opaque color
 	}
 
-	public static MyColor[] getColors()   //Stores Colors in an Array 
+	public static MyColor[] getColors()   //stores Colors in an Array 
 	{
 		return MyColor.values();
 	}
        
-	//Print Color components and hexadecimal representation
+	//Prints Color components and hexadecimal representation
 	public String printColorsAndHex()	
 	{
 		return "(r: " + this.r + ", g: " + this.g + ", b: " + this.b + ")" +

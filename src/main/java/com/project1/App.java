@@ -12,7 +12,6 @@ package com.project1;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
@@ -27,21 +26,15 @@ public class App extends Application {
         Canvas canvas = new Canvas(1000, 1000);              //creates a new canvas of height 1000 and width 1000
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        double ovalSize = 500;
-        MyPoint o1 = new MyPoint(0, 0);
-        MyOval oval = new MyOval(ovalSize, ovalSize, o1, MyColor.LIGHTBLUE);
-        oval.draw(gc);
-
-        Pair<MyPoint, Double> info = drawRecInsideOval(gc, o1, ovalSize, MyColor.MISTYROSE);
-        ovalSize = info.getValue();
-        MyOval oval2 = new MyOval(ovalSize, ovalSize, info.getKey(), MyColor.LIGHTPINK);
-        oval2.draw(gc);
-
-        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.CORNSILK);
-
-        MyOval oval3 = new MyOval(info.getValue(), info.getValue(), info.getKey(), MyColor.SKYBLU);
-        oval3.draw(gc);
-
+        double major = 500;
+        double minor = 500;
+        MyPoint point = new MyPoint(0, 0);
+        MyOval oval = drawOval(gc, point , minor, major, MyColor.LIGHTBLUE);
+        MyRectangle rec = drawRecInsideOval(gc, point, oval.getA(), oval.getB(), MyColor.MISTYROSE);
+        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.LIGHTPINK);
+        rec = drawRecInsideOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.CORNSILK);
+        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.SKYBLU);
+        
         Pane P = new Pane();        
         P.getChildren().add(canvas);
 
@@ -51,14 +44,20 @@ public class App extends Application {
 
     }
 
-    public Pair<MyPoint, Double> drawRecInsideOval(GraphicsContext gc, MyPoint oval, double diameter, MyColor color) {
-        double rectangle = Math.sqrt(2) * diameter / 2;
-        double distance = (diameter - rectangle) / 2;
-        MyPoint rPoint = new MyPoint(distance + oval.x, distance + oval.y);
-        MyRectangle r = new MyRectangle(rectangle, rectangle, rPoint, color);
+    public MyOval drawOval(GraphicsContext gc, MyPoint point, double minor, double major, MyColor color){
+        MyOval oval = new MyOval(minor, major, point, color);
+        oval.draw(gc);
+        return oval;
+    }
+    public MyRectangle drawRecInsideOval(GraphicsContext gc, MyPoint oval, double minor, double major, MyColor color) {
+        double width = Math.sqrt(2) * minor / 2;
+        double height = Math.sqrt(2) * major / 2;
+        double x = (minor - width) / 2;
+        double y = (major - height) / 2;
+        MyPoint rPoint = new MyPoint(x + oval.x, y + oval.y);
+        MyRectangle r = new MyRectangle(height, width, rPoint, color);
         r.draw(gc);
-        Pair<MyPoint, Double> info = new Pair<MyPoint, Double>(rPoint, rectangle);
-        return info;
+        return r;
     }
 
     public static void main(String[] args) {

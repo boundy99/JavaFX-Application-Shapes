@@ -56,7 +56,7 @@ public class MyOval extends MyShape
      }                                                                    //returns the perimeter of the oval
 
      @Override 
-     public double area() { return 2 * majorAxis * minorAxis; }                           //returns the area of the oval
+     public double area() { return 2 * majorAxis * minorAxis; }           //returns the area of the oval
 
      @Override
     public String toString()                                              //returns the oval's description

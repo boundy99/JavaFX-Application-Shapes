@@ -24,7 +24,7 @@ public class TestMyClasses {
         MyPoint p2 = new MyPoint(200,600);             //creates a new point p2 of coordinates x and y from MyPoint
 
         System.out.println("--------------------------------|");
-        System.out.println("CLASS MyColor OUTPUTS");
+        System.out.println("MyColor OUTPUTS");
         System.out.println("--------------------------------|");
 
         System.out.println();
@@ -32,18 +32,19 @@ public class TestMyClasses {
         System.out.println(color.printColorsAndHex());      //prints the color red, green, blue and its hexadecimal representation
     
         System.out.println("--------------------------------|");
-        System.out.println("CLASS MyPoint OUTPUTS");
+        System.out.println("MyPoint OUTPUTS");
         System.out.println("--------------------------------|");
 
         System.out.println();
         System.out.println("Point 1 " + "\n" + p1);         //prints the coordinates of point 1
         System.out.println("\nPoint 2 " + "\n" + p2);       //prints the coordinates of point 2
 
-        System.out.println("\nDistance from point 1 and point 2 is: " + p1.distance(p2)); //prints the distance between point 1 and point 2
+        System.out.println("\nDistance between point 1 and point 2 is: " + p1.distance(p2)); //prints the distance between point 1 and point 2
+        System.out.println("Distance between point 1 and origin is: "+p1.distanceFromCoordinatesToOriogin());
         System.out.println("The Angle of point 1 and point 2 is: " + p1.getAngleX(p2));   //prints the angle of point 1 and point 2
 
         System.out.println("--------------------------------|");
-        System.out.println("CLASS MyRectangle OUTPUTS");
+        System.out.println("MyRectangle OUTPUTS");
         System.out.println("--------------------------------|");
 
         System.out.println();
@@ -51,7 +52,7 @@ public class TestMyClasses {
         System.out.println(rectangle); //prints the rectangle height, width, top left corner, area and perimeter
         
         System.out.println("--------------------------------|");
-        System.out.println("CLASS MyOval OUTPUTS");
+        System.out.println("MyOval OUTPUTS");
         System.out.println("--------------------------------|");
         System.out.println();
         MyOval oval = new MyOval(3, 5, p1, MyColor.DARKBLUE);   //creates a new OVAL from MyOval
