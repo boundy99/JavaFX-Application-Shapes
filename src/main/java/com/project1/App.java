@@ -1,5 +1,14 @@
-package com.project1;
+/*
+Student name: Abdoulaye Boundy Djikine
+Instructor name: Hesham Auda
+Section: CSC 22100 M[24141]
+Date:29/09/2022
 
+Goal: This assignment has for goal to draw overlaying shapes using JavaFX Application
+
+Class: MyShape
+*/
+package com.project1;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,9 +37,9 @@ public class App extends Application {
         MyOval oval2 = new MyOval(ovalSize, ovalSize, info.getKey(), MyColor.LIGHTPINK);
         oval2.draw(gc);
 
-        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.KHAKI);
+        info = drawRecInsideOval(gc, info.getKey(), ovalSize, MyColor.CORNSILK);
 
-        MyOval oval3 = new MyOval(info.getValue(), info.getValue(), info.getKey(), MyColor.LIGHTSALMON);
+        MyOval oval3 = new MyOval(info.getValue(), info.getValue(), info.getKey(), MyColor.SKYBLU);
         oval3.draw(gc);
 
         Pane P = new Pane();        
