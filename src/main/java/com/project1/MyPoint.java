@@ -25,22 +25,22 @@ public class MyPoint {
 
     MyPoint(double x, double y)
     {
-        setPoint(x,y);
-        setColor(pointColor);
+        setPoint(x,y);                    //assigns x and y to the point's coordinates
+        setColor(pointColor);             //sets the color to pointColor
     } 
 
     MyPoint(MyPoint p)
     {
-        setPoint(p);
-        setColor(pointColor);
+        setPoint(p);                      //sets the point to p
+        setColor(pointColor);             //sets the color to pointColor
     } 
 
     //Setters
     
     public void setPoint(MyPoint p)
     {
-        this.x = p.getXCoordinate();
-        this.y = p.getYCoordinate();
+        this.x = p.getXCoordinate();      //assigns x as the point p x coordinate
+        this.y = p.getYCoordinate();      //assigns y as the point p y coordinate
     }
 
     public void setPoint(double x, double y) {
@@ -51,7 +51,7 @@ public class MyPoint {
     public void setColor(MyColor pointColor) 
     {
         this.pointColor = Optional.ofNullable(pointColor).orElse(MyColor.PINK);
-        //In case the user to choose his own default color
+        //In case the user does not choose his own color
     } 
 
     //Getters 
@@ -62,7 +62,7 @@ public class MyPoint {
     public double getYCoordinate(){ return y; }          //returns the y coordinate of the point
 
 
-    public void translate(double dx, double dy)           //Change the x and y coordinates by the specified distance
+    public void translate(double dx, double dy)           //changes the x and y coordinates by the specified distance
     {
         this.x += dx;
         this.y += dy;
@@ -87,13 +87,13 @@ public class MyPoint {
         return Math.toDegrees(Math.atan2(dy, dx));
     }
 
-    public void setStroke(GraphicsContext GC)            //Draw using JavaFX Application GraphicsContext
+    public void setStroke(GraphicsContext GC)            //draws outline using JavaFX Application 
     {
         GC.setStroke(pointColor.getJavaFXColor());
         GC.strokeRect(1,1, x,y);
     }
 
-    public void draw(GraphicsContext GC)                 //Draw using JavaFX Application GraphicsContext
+    public void draw(GraphicsContext GC)                 //fills the interior using JavaFX Application 
     {
         GC.setFill(pointColor.getJavaFXColor());
         GC.fillRect(1,1, x,y);
@@ -102,6 +102,6 @@ public class MyPoint {
     @Override
     public String toString() {  
         return "X = "  + x + 
-               "\nY = " + y ; } //Object's description
+               "\nY = " + y ; } //Point's description
 
 } //end of the class MyPoint
