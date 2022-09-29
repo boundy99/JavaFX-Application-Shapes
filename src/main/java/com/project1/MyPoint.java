@@ -84,6 +84,8 @@ public class MyPoint {
     }
     
     @Override
-    public String toString() {  return "My Point is (" + " x = " + x + ", y=" + y + ")" ; } //Object's description
+    public String toString() {  
+        return "X = "  + x + 
+               "\nY = " + y ; } //Object's description
 
 } //end of the class MyPoint

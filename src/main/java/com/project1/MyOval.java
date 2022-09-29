@@ -50,11 +50,15 @@ public class MyOval extends MyShape
      public double area() { return 2 * a * b; }                           //returns the area of the oval
 
      @Override
-    public String toString()
+    public String toString()                                              //returns the oval's description
     {
-        return "Oval center : ("+ center.getXCoordinate() + ", "+ center.getXCoordinate() + "), " +
-        "Major and Minor axis : " + getA() + ", " + getB() + "), Permimeter =  " + perimeter() +
-        ", Area = " + area();
+        return "Center Coordinates : "+
+               "\nX = " + center.getXCoordinate() + 
+               "\nY = " + center.getXCoordinate() +
+               "\nAbscissa 1 = " + getA() + 
+               "\nAbscissa 2 = " + getB() + 
+               "\nPermimeter =  " + perimeter() +
+               "\nArea = " + area();
     }
 
     @Override
@@ -62,7 +66,6 @@ public class MyOval extends MyShape
     {
         GC.setStroke(color.getJavaFXColor());
         GC.strokeOval(center.getXCoordinate(), center.getYCoordinate(), a, b);
-        //GC.center.getXCoordinate(), center.getYCoordinate()
     }
 
     @Override

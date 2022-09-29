@@ -130,24 +130,25 @@ public enum MyColor {
  	WHITE (255,255,255,255);
     
     //variables
-    private int r; //Red Colors range from 0 to 255
-    private int b; //Blue Colors range from 0 to 255
-    private int g; //Green Colors range from 0 to 255
-	private int a; //Opacity range from 0 to 255
-    private int argb; // Pack of Opacity - Red - Green - Blue in bits
+    private int r;    //Red Colors component range from 0 to 255
+    private int b;    //Blue Colors component range from 0 to 255
+    private int g;    //Green Colors component range from 0 to 255
+	private int a;    //Opacity Colors component range from 0 to 255
+    private int argb; // Pack of Opacity -  Red   -  Green  -  Blue in bits
+					  // Bits:     31-24 - 23-16  -  15-8   -  7-0
 
     //constructor
     MyColor(int r, int g, int b, int a)
     {
-       setR(r);
-	   setG(g);
-       setB(b);
-	   setA(a);
-       setARGB(r, g, b, a);
+       setR(r); //sets the red component to r
+	   setG(g); //sets the green component to g
+       setB(b); //sets the blue component to b
+	   setA(a); //sets the alpha component to
+       setARGB(r, g, b, a); //sets the argb component to
     }
 
     //Setters 
-    public void setR(int r) 
+    public void setR(int r)    //sets the red component to r
     {
         if(r>=0 && r<=255)
         {
@@ -155,7 +156,7 @@ public enum MyColor {
         }
     }
 
-    public void setG(int g) 
+    public void setG(int g)   //sets the green component to g
     {
         if(g>=0 && g<=255)
         {
@@ -163,7 +164,7 @@ public enum MyColor {
         }
     }
 
-    public void setB(int b) 
+    public void setB(int b)    //sets the blue component to b
     {
         if(b>=0 && b<=255)
         {
@@ -171,7 +172,7 @@ public enum MyColor {
         }
     }
 
-	public void setA(int a) 
+	public void setA(int a)    //sets the alpha component to a
     {
         if(a>=0 && a<=255)
         {
@@ -179,7 +180,7 @@ public enum MyColor {
         }
     }
 
-    public void setARGB(int a, int r, int g, int b) 
+    public void setARGB(int a, int r, int g, int b)  //
     {
         this.argb = (a << 24) & 0xFF000000 |
                     (r << 16) & 0x00FF0000|
@@ -200,18 +201,12 @@ public enum MyColor {
 		return "#" + Integer.toHexString(getARGB()).toUpperCase();
 	}
 
-	public Color getJavaFXColor()
+	public Color getJavaFXColor()  //returns the JavaFX colors
 	{
-		return Color.rgb(r, g, b, ((double) a/255.0));
+		return Color.rgb(r, g, b, ((double) a/255.0)); //divides a by 255 to get desired opacity
 	}
 
-	public Color getJavaFXOpaqueColor() 
-	{ 
-		return Color.rgb(r, g, b, ((double) a/255.0));
-	}
-	 
-	//Stores Colors in an Array 
-	public static MyColor[] getColors()
+	public static MyColor[] getColors()   //Stores Colors in an Array 
 	{
 		return MyColor.values();
 	}

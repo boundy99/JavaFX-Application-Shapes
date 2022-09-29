@@ -34,11 +34,11 @@ public class MyShape{
     //Getters 
     public MyPoint getPoint() { return p; }                         //returns the point
 
-    public MyColor getShapeColor() { return color; }           //returns the color of the shape
+    public MyColor getShapeColor() { return color; }                //returns the color of the shape
 
-    public double getXCoordinate(){ return p.getXCoordinate(); }   //returns the x coordinate of the point
+    public double getXCoordinate(){ return p.getXCoordinate(); }    //returns the x coordinate of the point
 
-    public double getYCoordinate(){ return p.getYCoordinate(); }   //returns the y coordinate of the point
+    public double getYCoordinate(){ return p.getYCoordinate(); }    //returns the y coordinate of the point
 
 
     //Return Area and Perimeter of MyShape
