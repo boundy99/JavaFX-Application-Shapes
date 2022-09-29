@@ -15,13 +15,13 @@ public class MyOval extends MyShape
 {
 
     //variables 
-    double a, b;            //major and minore axis of the oval
-    MyPoint center;         //center of the oval
+    double a, b;                                 //major and minor axis of the oval
+    MyPoint center;                              //center of the oval of type MyPoint
 
     //constructors
     MyOval(double majorAxis, double minorAxis, MyPoint tp, MyColor color) 
     {
-        super(tp, color);                                     //calls the super class constructor
+        super(tp, color);                                     //calls the constructor from the super class of MyShape 
         this.center = this.p;                                 //sets the center of the oval 
         if (a>b)
         {

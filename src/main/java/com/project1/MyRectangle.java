@@ -14,13 +14,13 @@ import javafx.scene.canvas.GraphicsContext;
 public class MyRectangle extends MyShape {
    
     //Variables 
-    double w;                        //The width of the rectangle
-    double h;                        //The height of the rectangle
+    double w;                                                   //The width of the rectangle
+    double h;                                                   //The height of the rectangle
 
     //Constructors
     MyRectangle(double h, double w, MyPoint tp, MyColor color) 
     {
-        super(tp, color);                                        //calls the constructor from the super class of MyRectangle 
+        super(tp, color);                                        //calls the constructor from the super class of MyShape 
         this.h= h;                                               //initializes the height to h
         this.w= w;                                               //initializes the width to w
     }

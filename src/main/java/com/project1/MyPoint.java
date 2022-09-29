@@ -15,9 +15,10 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class MyPoint {
 
-    public double x;         //x coordinate of the point
-    public double y;         //y coordinate of the point
-    MyColor pointColor;      //color of the point
+    //variables
+    public double x;                      //creates x of type double
+    public double y;                      //creates y of type double
+    MyColor pointColor;                   //creates a color of type MyColor
 
     //Constructor
     MyPoint() { setPoint(0,0); }
