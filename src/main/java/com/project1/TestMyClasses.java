@@ -14,30 +14,30 @@ import java.util.Random;
 public class TestMyClasses {
     public static void main(String[] args) {
 
-        Random rand = new Random();                         //random number generator
-        MyColor[] myColors = MyColor.getColors();           //creats an array of colors
-        int randomNum = rand.nextInt(myColors.length);      //random number generator
-        MyColor color = myColors[randomNum];                //randomises the colors in the array
+        Random rand = new Random();                     //random number generator
+        MyColor[] myColors = MyColor.getColors();       //creates an array of colors
+        int randomNum = rand.nextInt(myColors.length);  //random number generator
+        MyColor color = myColors[randomNum];            //randomises the colors in the array
 
 
-        MyPoint p1 = new MyPoint(128,246);             //creates a new point p1 of coordinates x and y from MyPoint
-        MyPoint p2 = new MyPoint(200,600);             //creates a new point p2 of coordinates x and y from MyPoint
+        MyPoint p1 = new MyPoint(128,246);         //creates a new point p1 of coordinates x and y from MyPoint
+        MyPoint p2 = new MyPoint(200,600);         //creates a new point p2 of coordinates x and y from MyPoint
 
         System.out.println("--------------------------------|");
         System.out.println("MyColor OUTPUTS");
         System.out.println("--------------------------------|");
 
         System.out.println();
-        System.out.println(color);                          //prints the color name
-        System.out.println(color.printColorsAndHex());      //prints the color red, green, blue and its hexadecimal representation
+        System.out.println(color);                      //prints the color name
+        System.out.println(color.printColorsAndHex());  //prints the color red, green, blue and its hexadecimal representation
     
         System.out.println("--------------------------------|");
         System.out.println("MyPoint OUTPUTS");
         System.out.println("--------------------------------|");
 
         System.out.println();
-        System.out.println("Point 1 " + "\n" + p1);         //prints the coordinates of point 1
-        System.out.println("\nPoint 2 " + "\n" + p2);       //prints the coordinates of point 2
+        System.out.println("Point 1 " + "\n" + p1);     //prints the coordinates of point 1
+        System.out.println("\nPoint 2 " + "\n" + p2);   //prints the coordinates of point 2
 
         System.out.println("\nDistance between point 1 and point 2 is: " + p1.distance(p2)); //prints the distance between point 1 and point 2
         System.out.println("Distance between point 1 and origin is: "+p1.distanceFromCoordinatesToOriogin());
@@ -56,7 +56,7 @@ public class TestMyClasses {
         System.out.println("--------------------------------|");
         System.out.println();
         MyOval oval = new MyOval(3, 5, p1, MyColor.DARKBLUE);   //creates a new OVAL from MyOval
-        System.out.println(oval);
+        System.out.println(oval);   //prints the oval descprition
 
     }
 } //end of TestMyClasses

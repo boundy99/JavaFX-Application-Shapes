@@ -49,14 +49,14 @@ public class MyRectangle extends MyShape {
     }
 
     @Override
-    public void Stroke(GraphicsContext GC)
+    public void Stroke(GraphicsContext GC)             //draws outline of the shape using JavaFX Application      
     {
         GC.setStroke(color.getJavaFXColor());
         GC.strokeRect(this.p.getXCoordinate(), this.p.getYCoordinate(), w,h);
     }
 
     @Override
-    public void draw(GraphicsContext GC)
+    public void draw(GraphicsContext GC)              //fills the interior of the shape using JavaFX Application  
     {
         GC.setFill(color.getJavaFXColor());
         GC.fillRect(this.p.getXCoordinate(), this.p.getYCoordinate(), w,h);

@@ -22,7 +22,7 @@ public class MyShape{
     MyShape(MyPoint p, MyColor shapeColor) 
     {
         setPoint(p);             //calls the the function setPoint() to sets the point to p
-        setColor(shapeColor);    //calls the the function setColor to sets the color
+        setColor(shapeColor);    //calls the the function setColor() to sets the color
     }
 
     MyShape(int x, int y, MyColor shapeColor)  //Overloads the constructor with x and y
@@ -39,7 +39,7 @@ public class MyShape{
     public void setColor(MyColor shapeColor)                        //sets the color of the shape
     {
         this.color = Optional.ofNullable(shapeColor).orElse(MyColor.BLACK);  
-        //set the color of the shape to black if user does not set it explicitly
+        //sets the color of the shape to black if user does not set it explicitly
     }
 
     //Getters 
@@ -59,13 +59,13 @@ public class MyShape{
     public double perimeter(){ return 0; }                         //returns the perimeter of the shape
 
 
-    public void Stroke(GraphicsContext GC)
+    public void Stroke(GraphicsContext GC)                         //draws outline of the shape using JavaFX Application                         
     {
         GC.setStroke(color.getJavaFXColor());
         GC.strokeRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());
     }
 
-    public void draw(GraphicsContext GC)
+    public void draw(GraphicsContext GC)                           //fills the interior of the shape using JavaFX Application 
     {
         GC.setFill(color.getJavaFXColor());
         GC.fillRect(0, 0, GC.getCanvas().getWidth(), GC.getCanvas().getHeight());

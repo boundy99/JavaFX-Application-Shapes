@@ -23,37 +23,38 @@ public class App extends Application {
     @Override
     public void start(Stage PS) throws IOException {
 
-        Canvas canvas = new Canvas(1000, 1000);              //creates a new canvas of height 1000 and width 1000
+        Canvas canvas = new Canvas(1000, 1000);  //creates a new canvas of height 1000 and width 1000
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        double major = 500;
-        double minor = 500;
-        MyPoint point = new MyPoint(0, 0);
-        MyOval oval = drawOval(gc, point , minor, major, MyColor.LIGHTBLUE);
-        MyRectangle rec = drawRecInsideOval(gc, point, oval.getA(), oval.getB(), MyColor.MISTYROSE);
-        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.LIGHTPINK);
-        rec = drawRecInsideOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.CORNSILK);
-        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.SKYBLU);
+        double major = 500;    //major axis of the oval
+        double minor = 500;    //minor axis of the oval
+        MyPoint point = new MyPoint(0, 0);  //new point from class MyPoint
+        MyShape shape = new MyShape (point, MyColor.STEELBLUE); //new shape from class MyShape
+        shape.draw(gc); //draw the shape
+        MyOval oval = drawOval(gc, point , minor, major, MyColor.LIGHTBLUE);   //draws oval
+        MyRectangle rec = drawRecInsideOval(gc, point, oval.getA(), oval.getB(), MyColor.MISTYROSE); //draws rectangle inside oval
+        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.LIGHTPINK); //draws oval inside rectangle
+        rec = drawRecInsideOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.CORNSILK); //draws rectangle inside oval
+        oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.SKYBLU); //draws oval inside rectangle
         
-        Pane P = new Pane();        
+        Pane P = new Pane();        //manages the image
         P.getChildren().add(canvas);
-
-        Scene scene = new Scene(P);
+        Scene scene = new Scene(P); //displays the scene
         PS.setScene(scene);
         PS.show();
 
     }
 
     public MyOval drawOval(GraphicsContext gc, MyPoint point, double minor, double major, MyColor color){
-        MyOval oval = new MyOval(minor, major, point, color);
-        oval.draw(gc);
-        return oval;
+        MyOval oval = new MyOval(minor, major, point, color); //new oval
+        oval.draw(gc); //draws the oval
+        return oval;   //returns the oval
     }
     public MyRectangle drawRecInsideOval(GraphicsContext gc, MyPoint oval, double minor, double major, MyColor color) {
-        double width = Math.sqrt(2) * minor / 2;
-        double height = Math.sqrt(2) * major / 2;
-        double x = (minor - width) / 2;
-        double y = (major - height) / 2;
+        double width = Math.sqrt(2) * minor / 2;   //width 
+        double height = Math.sqrt(2) * major / 2;  //height
+        double x = (minor - width) / 2;  //area between oval and rectangle on x axis
+        double y = (major - height) / 2; //area between oval and rectangle on y axis
         MyPoint rPoint = new MyPoint(x + oval.x, y + oval.y);
         MyRectangle r = new MyRectangle(height, width, rPoint, color);
         r.draw(gc);
