@@ -26,15 +26,15 @@ public class App extends Application {
         Canvas canvas = new Canvas(1000, 1000);  //creates a new canvas of height 1000 and width 1000
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        double major = 500;    //major axis of the oval
-        double minor = 500;    //minor axis of the oval
+        double major = 300;    //major axis of the oval
+        double minor = 200;    //minor axis of the oval
         MyPoint point = new MyPoint(0, 0);  //new point from class MyPoint
         MyShape shape = new MyShape (point, MyColor.STEELBLUE); //new shape from class MyShape
         shape.draw(gc); //draw the shape
         MyOval oval = drawOval(gc, point , minor, major, MyColor.LIGHTBLUE);   //draws oval
         MyRectangle rec = drawRecInsideOval(gc, point, oval.getA(), oval.getB(), MyColor.MISTYROSE); //draws rectangle inside oval
         oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.LIGHTPINK); //draws oval inside rectangle
-        rec = drawRecInsideOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.CORNSILK); //draws rectangle inside oval
+        rec = drawRecInsideOval(gc, oval.getPoint(), oval.getA() , oval.getB(), MyColor.CORNSILK); //draws rectangle inside oval
         oval = drawOval(gc, rec.getPoint(), rec.getHeight() , rec.getWidth(), MyColor.SKYBLU); //draws oval inside rectangle
         
         Pane P = new Pane();        //manages the image
@@ -65,4 +65,4 @@ public class App extends Application {
         launch();   //launches the application
     }
 
-}
+} //end of class App
