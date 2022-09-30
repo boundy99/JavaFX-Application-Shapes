@@ -16,7 +16,7 @@ public class MyOval extends MyShape
 
     //variables 
     double majorAxis, minorAxis;                 //major and minor axis of the oval
-    MyPoint cp;                                  //center of the oval of type MyPoint
+    MyPoint cp;                                  //center point of the oval of type MyPoint
 
     //constructors
     MyOval(double a, double b, MyPoint tp, MyColor color) 
@@ -40,7 +40,7 @@ public class MyOval extends MyShape
      public double perimeter() 
      { 
         return 2 * Math.PI * Math.sqrt(((majorAxis * majorAxis) + (minorAxis * minorAxis)) / 2); 
-     }                                                                    //returns the perimeter of the oval
+     }                                                                 //returns the perimeter of the oval
 
      @Override 
      public double area() { return 2 * majorAxis * minorAxis; }           //returns the area of the oval
